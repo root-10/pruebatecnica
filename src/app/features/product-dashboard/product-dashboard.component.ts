@@ -3,6 +3,8 @@ import { CommonModule, UpperCasePipe } from '@angular/common';
 import { Observer, Subject, takeUntil } from 'rxjs';
 import { Product } from './interfaces/product';
 import { ProductService } from './services/product.service';
+import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
+import { ModalComponent } from 'src/app/shared/modal/modal.component';
 
 @Component({
   selector: 'app-product-dashboard',
@@ -18,6 +20,7 @@ export class ProductDashboardComponent implements OnInit {
   tableHeader: string[] = ['nombre', 'precio', 'stock'];
   tableBody: any[] = [];
   selectedRow: number | null = null;
+  private modalService = inject(NgbModal);
 
   ngOnInit(): void {
     this.getProducts();
@@ -69,7 +72,7 @@ export class ProductDashboardComponent implements OnInit {
     ).subscribe(observer);
   }
 
-  createProduct() {
+  createProduct() { // Crear Producto al llenar modal (método de abajo)
     const body: Product = { id: 22, nombre: '', precio: 122, stock: 100 };
     const observer: Observer<Product> = {
       next: () => { this.getProducts() },
@@ -79,5 +82,9 @@ export class ProductDashboardComponent implements OnInit {
     this.productService.createProduct(body).pipe(
       takeUntil(this.destroy$)
     ).subscribe(observer);
+  }
+
+  openCreateModal() {
+    const modalRef = this.modalService.open(ModalComponent);
   }
 }
