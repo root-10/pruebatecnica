@@ -1,0 +1,24 @@
+<div class="page">
+  <div class="container">
+    <h1>Dashboard</h1>
+    <table class="table-grid">
+      <thead>
+        <tr class="table-row table-header">
+          <th *ngFor="let header of tableHeader">{{ header | uppercase }}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let b of tableBody" class="table-row" (click)="toogleSelectionOfRow(b)"
+          [ngClass]="{ 'row-selected': selectedRow === b.id}">
+          <td *ngFor="let h of tableHeader">
+            {{ b[h] }}
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="buttonpanel">
+      <button (click)="createProduct()">Agregar Producto</button>
+      <button (click)="removeProduct()">Eliminar</button>
+    </div>
+  </div>
+</div>

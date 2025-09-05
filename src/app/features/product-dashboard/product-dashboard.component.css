@@ -1,0 +1,54 @@
+.page {
+  display: grid;
+  align-items: center;
+  place-items: center;
+  min-height: 100dvh;
+}
+
+.container {
+  width: 90%;
+  max-width: 1080px;
+  margin-block: 1rem;
+}
+
+table {
+  width: 100%;
+  display: grid;
+  grid-template-rows: auto;
+  border: 1px solid #DDD;
+  margin-block: 1rem;
+
+  tr {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding: 0.5rem;
+    background-color: #F5F5F5;
+  }
+
+  td {
+    text-align: center;
+  }
+
+  thead {
+    tr {
+      font-weight: bold;
+      background-color: #e0e0e0;
+    }
+  }
+
+  tbody {
+    tr {
+      cursor: pointer;
+    }
+  }
+
+  .row-selected {
+    background: #b2b7c7;
+  }
+}
+
+.buttonpanel {
+  display: flex;
+  gap: 1rem;
+  justify-content: flex-end;
+}

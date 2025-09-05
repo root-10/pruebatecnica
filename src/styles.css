@@ -1,0 +1,26 @@
+* {
+  box-sizing: border-box;
+  min-width: 0;
+  font-family: var(--quicksand), var(--jost), "Open Sans", "Roboto", sans-serif;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  text-wrap: balance;
+  margin: 0;
+}
+
+p,
+span {
+  text-wrap: pretty;
+  margin: 0;
+}
